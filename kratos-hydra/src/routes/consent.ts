@@ -38,6 +38,10 @@ async function createOAuth2ConsentRequestSession(
       id_token.phone = identity.traits["phone"] || ""
     }
 
+    if (grantScopes.indexOf("customer_uuid") > -1) {
+      id_token.customer_uuid = identity.traits["customer_uuid"]
+    }
+
     // permissionApi.checkPermission({
     //   namespace: undefined,
     //   object: undefined,
